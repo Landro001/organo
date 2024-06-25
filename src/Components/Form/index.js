@@ -1,3 +1,4 @@
+import Button from '../Button'
 import DropDown from '../DropDown'
 import TextField from '../TextField'
 import './Form.css'
@@ -22,6 +23,9 @@ const Form = () => {
                 <TextField label="Cargo" placeholder="Digite seu cargo"/>
                 <TextField label="Imagem" placeholder="Digite o endereço da imagem"/>
                 <DropDown label="Times" itens={times}/>
+                <Button>
+                    Criar Card
+                </Button>
             </form>
         </section>
     )
