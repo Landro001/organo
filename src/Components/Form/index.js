@@ -4,7 +4,7 @@ import DropDown from '../DropDown'
 import TextField from '../TextField'
 import './Form.css'
 
-const Form = () => {
+const Form = (props) => {
 
     const times = [
         'Programação',
@@ -14,17 +14,22 @@ const Form = () => {
         'UX e Design',
         'Mobile',
         'Inovação e Gestão'
-    ]
+    ];
 
-   const [nome, setNome] = useState('')
-   const [cargo, setCargo] = useState('')
-   const [imagem, setImagem] = useState('')
-   const [time, setTime] = useState('')
+   const [nome, setNome] = useState('');
+   const [cargo, setCargo] = useState('');
+   const [imagem, setImagem] = useState('');
+   const [time, setTime] = useState('');
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        console.log('Form foi submetido => ', nome, cargo, imagem)
-    }
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
+    };
 
     return(
         <section className='form'>
