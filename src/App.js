@@ -1,11 +1,11 @@
 import Banner from './Components/Banner';
-import TextField from './Components/TextField';
+import Form from './Components/Form';
 
 const App = () => {
   return (
     <div className="App">
       <Banner />
-      <TextField />
+      <Form />
     </div>
   );
 }
