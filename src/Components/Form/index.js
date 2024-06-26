@@ -8,6 +8,7 @@ const Form = (props) => {
 
     const times = [
         'Programação',
+        'Programação',
         'Front-End',
         'Data Science',
         'Devops',
