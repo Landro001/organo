@@ -6,17 +6,6 @@ import './Form.css'
 
 const Form = (props) => {
 
-    const times = [
-        'Programação',
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ];
-
    const [nome, setNome] = useState('');
    const [cargo, setCargo] = useState('');
    const [imagem, setImagem] = useState('');
@@ -59,7 +48,7 @@ const Form = (props) => {
                 <DropDown 
                     obrigatorio={true} 
                     label="Times" 
-                    itens={times}
+                    itens={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
