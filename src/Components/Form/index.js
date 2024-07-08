@@ -1,67 +1,64 @@
-import { useState } from 'react'
-import Button from '../Button'
-import DropDown from '../DropDown'
-import TextField from '../TextField'
-import './Form.css'
+import { useState } from "react";
+import Button from "../Button";
+import DropDown from "../DropDown";
+import TextField from "../TextField";
+import "./Form.css";
 
 const Form = (props) => {
-
-   const [nome, setNome] = useState('');
-   const [cargo, setCargo] = useState('');
-   const [imagem, setImagem] = useState('');
-   const [time, setTime] = useState('');
+    const [jogador, setJogador] = useState("");
+    const [time, setTime] = useState("");
+    const [imagem, setImagem] = useState("");
+    const [lane, setLane] = useState("");
 
     const aoSalvar = (evento) => {
-        evento.preventDefault()
+        evento.preventDefault();
         props.aoColaboradorCadastrado({
-            nome,
-            cargo,
+            jogador,
+            time,
             imagem,
-            time
-        })
-        setNome('')
-        setCargo('')
-        setImagem('')
-        setTime('')
+            lane,
+        });
+        setJogador("");
+        setTime("");
+        setImagem("");
+        setLane("");
     };
 
-    return(
-        <section className='form'>
+    return (
+        <section className="form">
             <form onSubmit={aoSalvar}>
-                <h2>Preencha os dados para criar o card do colaborador</h2>
-                <TextField 
-                    obrigatorio={true} 
-                    label="Nome" 
-                    placeholder="Digite seu nome"
-                    valor={nome}
-                    aoAlterado={valor => setNome(valor)}
+                <h2>Preencha os dados para criar o card do jogador</h2>
+                <TextField
+                    obrigatorio={true}
+                    label="Jogador"
+                    placeholder="Digite o nick do jogador"
+                    valor={jogador}
+                    aoAlterado={(valor) => setJogador(valor)}
                 />
-                <TextField 
-                    obrigatorio={true} 
-                    label="Cargo" 
-                    placeholder="Digite seu cargo"
-                    valor={cargo}
-                    aoAlterado={valor => setCargo(valor)}
+                <TextField
+                    obrigatorio={true}
+                    label="Time"
+                    placeholder="Digite o time"
+                    valor={time}
+                    aoAlterado={(valor) => setTime(valor)}
                 />
-                <TextField 
-                    label="Imagem" 
+                <TextField
+                    label="Imagem"
                     placeholder="Digite o endereço da imagem"
                     valor={imagem}
-                    aoAlterado={valor => setImagem(valor)}
+                    aoAlterado={(valor) => setImagem(valor)}
                 />
-                <DropDown 
-                    obrigatorio={true} 
-                    label="Times" 
-                    itens={props.times}
-                    valor={time}
-                    aoAlterado={valor => setTime(valor)}
+                <DropDown
+                    obrigatorio={true}
+                    label="Lane"
+                    itens={props.lanes}
+                    valor={lane}
+                    aoAlterado={(valor) => setLane(valor)}
                 />
-                <Button>
-                    Criar Card
-                </Button>
+                <Button>Criar Card</Button>
             </form>
         </section>
-    )
-}
+    );
+};
 
-export default Form
+export default Form;
